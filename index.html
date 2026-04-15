@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bot Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+    header {
+      background: #020617;
+      padding: 16px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .card {
+      background: #1e293b;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 8px;
+    }
+    .danger {
+      background: #dc2626;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>🚀 Trading Bot Dashboard</header>
+
+<div class="card">
+  <h3>Status</h3>
+  <p>Bot: <strong>RUNNING</strong></p>
+  <p>Mode: DRY RUN</p>
+</div>
+
+<div class="card">
+  <h3>Last Decision</h3>
+  <p>BTCUSDT – HOLD</p>
+  <small>Waiting for confirmation</small>
+</div>
+
+<div class="card">
+  <button class="danger">🟥 STOP BOT</button>
+</div>
+
+</body>
+</html>
