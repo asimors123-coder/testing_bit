@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Investment Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Crypto Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="container">
 
-    <h1>📊 ניהול השקעות</h1>
+<div class="app">
 
-    <section class="summary">
-      <div class="card">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>💎 Portfolio</h2>
+    <nav>
+      <a class="active">📊 דשבורד</a>
+      <a>➕ פוזיציה</a>
+      <a>📈 אנליטיקה</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- TOP CARDS -->
+    <section class="stats">
+      <div class="stat-card">
         <span>💰 הון כולל</span>
         <strong><span id="totalCapital">0</span> ₪</strong>
       </div>
-      <div class="card">
+      <div class="stat-card">
         <span>💸 מושקע</span>
         <strong><span id="invested">0</span> ₪</strong>
       </div>
+      <div class="stat-card highlight">
+        <span>📈 רווח / הפסד</span>
+        <strong>0 ₪</strong>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>➕ הוספת פוזיציה</h2>
+    <!-- ADD POSITION -->
+    <section class="panel">
+      <h3>➕ הוספת פוזיציה</h3>
       <div class="form">
         <input id="coin" placeholder="מטבע (BTC)" />
         <input id="amount" type="number" placeholder="כמות" />
@@ -35,26 +52,29 @@
       </div>
     </section>
 
-    <section class="card">
-      <h2>📈 פוזיציות</h2>
+    <!-- TABLE -->
+    <section class="panel">
+      <h3>📋 פוזיציות פתוחות</h3>
       <table>
         <thead>
           <tr>
             <th>מטבע</th>
             <th>כמות</th>
             <th>קנייה</th>
-            <th>השקעה ₪</th>
+            <th>₪ השקעה</th>
             <th>TP</th>
             <th>SL</th>
-            <th>הערה</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="positions"></tbody>
       </table>
     </section>
 
-  </div>
+  </main>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
