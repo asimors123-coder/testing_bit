@@ -1,80 +1,62 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Crypto Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Investment App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="app">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h2>💎 Portfolio</h2>
-    <nav>
-      <a class="active">📊 דשבורד</a>
-      <a>➕ פוזיציה</a>
-      <a>📈 אנליטיקה</a>
-    </nav>
-  </aside>
+  <header class="header">
+    <div>
+      <span class="label">Balance</span>
+      <h1><span id="totalCapital">24,085</span> ₪</h1>
+    </div>
+    <div class="circle">75%</div>
+  </header>
 
-  <!-- MAIN -->
-  <main class="main">
+  <section class="cards">
+    <div class="card">
+      <span>מושקע</span>
+      <strong id="invested">8,400 ₪</strong>
+    </div>
+    <div class="card">
+      <span>רווח</span>
+      <strong class="green">+1,240 ₪</strong>
+    </div>
+  </section>
 
-    <!-- TOP CARDS -->
-    <section class="stats">
-      <div class="stat-card">
-        <span>💰 הון כולל</span>
-        <strong><span id="totalCapital">0</span> ₪</strong>
-      </div>
-      <div class="stat-card">
-        <span>💸 מושקע</span>
-        <strong><span id="invested">0</span> ₪</strong>
-      </div>
-      <div class="stat-card highlight">
-        <span>📈 רווח / הפסד</span>
-        <strong>0 ₪</strong>
-      </div>
-    </section>
+  <section class="card big">
+    <h3>➕ הוספת פוזיציה</h3>
+    <div class="form">
+      <input placeholder="מטבע">
+      <input placeholder="כמות">
+      <input placeholder="מחיר קנייה">
+      <input placeholder="TP">
+      <input placeholder="SL">
+      <button>הוסף</button>
+    </div>
+  </section>
 
-    <!-- ADD POSITION -->
-    <section class="panel">
-      <h3>➕ הוספת פוזיציה</h3>
-      <div class="form">
-        <input id="coin" placeholder="מטבע (BTC)" />
-        <input id="amount" type="number" placeholder="כמות" />
-        <input id="buyPrice" type="number" placeholder="מחיר קנייה" />
-        <input id="tp" type="number" placeholder="Target" />
-        <input id="sl" type="number" placeholder="Stop" />
-        <input id="note" placeholder="הערה" />
-        <button onclick="addPosition()">הוסף פוזיציה</button>
-      </div>
-    </section>
-
-    <!-- TABLE -->
-    <section class="panel">
-      <h3>📋 פוזיציות פתוחות</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>מטבע</th>
-            <th>כמות</th>
-            <th>קנייה</th>
-            <th>₪ השקעה</th>
-            <th>TP</th>
-            <th>SL</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="positions"></tbody>
-      </table>
-    </section>
-
-  </main>
+  <section class="card big">
+    <h3>📈 פוזיציות</h3>
+    <table>
+      <tr>
+        <th>מטבע</th>
+        <th>קנייה</th>
+        <th>TP</th>
+      </tr>
+      <tr>
+        <td>BTC</td>
+        <td>42,000</td>
+        <td class="green">48,000</td>
+      </tr>
+    </table>
+  </section>
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
