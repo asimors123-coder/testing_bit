@@ -1,55 +1,41 @@
-let positions = [];
-let totalCapital = 0;
+async function loadData() {
+  const res = await fetch("https://YOUR_URL.ngrok-free.app/data");
+  const data = await res.json();
 
-function addPosition() {
-  const coin = coinInput().value;
-  const amount = +amountInput().value;
-  const buyPrice = +buyPriceInput().value;
-  const tp = tpInput().value;
-  const sl = slInput().value;
-  const note = noteInput().value;
+  // Reports
+  document.querySelectorAll(".report-card strong")[0].innerText =
+    data.reports.open_positions;
 
-  const investment = amount * buyPrice;
+  document.querySelectorAll(".report-card strong")[1].innerText =
+    `+${data.reports.total_pnl} ₪`;
 
-  positions.push({ coin, amount, buyPrice, investment, tp, sl, note });
+  document.querySelectorAll(".report-card strong")[2].innerText =
+    data.reports.profit_count;
 
-  totalCapital += investment;
+  document.querySelectorAll(".report-card strong")[3].innerText =
+    data.reports.loss_count;
 
-  render();
-  clearForm();
-}
+  // Open positions
+  const table = document.querySelector("#home table");
+  table.innerHTML = `
+    <tr>
+      <th>נכס</th><th>קנייה</th><th>מחיר</th><th>PnL</th>
+    </tr>
+  `;
 
-function render() {
-  const tbody = document.getElementById("positions");
-  tbody.innerHTML = "";
-
-  positions.forEach(p => {
-    tbody.innerHTML += `
+  data.open_positions.forEach(p => {
+    const cls = p.pnl >= 0 ? "green" : "red";
+    table.innerHTML += `
       <tr>
         <td>${p.coin}</td>
-        <td>${p.amount}</td>
-        <td>${p.buyPrice}</td>
-        <td>${p.investment}</td>
-        <td>${p.tp}</td>
-        <td>${p.sl}</td>
-        <td>${p.note}</td>
+        <td>${p.buy}</td>
+        <td>${p.price}</td>
+        <td class="${cls}">${p.pnl}%</td>
       </tr>
     `;
   });
-
-  document.getElementById("invested").innerText = totalCapital;
-  document.getElementById("totalCapital").innerText = totalCapital;
 }
 
-function clearForm() {
-  document.querySelectorAll(".form input").forEach(i => i.value = "");
-}
-
-/* קיצורים */
-const coinInput = () => document.getElementById("coin");
-const amountInput = () => document.getElementById("amount");
-const buyPriceInput = () => document.getElementById("buyPrice");
-const tpInput = () => document.getElementById("tp");
-const slInput = () => document.getElementById("sl");
-const noteInput = () => document.getElementById("note");
+// טוען אוטומטית כשהדף נפתח
+loadData();
 ``
