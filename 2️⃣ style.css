@@ -1,35 +1,117 @@
-body {
-  font-family: Arial;
-  background: #111;
-  color: #fff;
-  padding: 20px;
+:root {
+  --bg: #0f1115;
+  --card: #161a22;
+  --border: #232838;
+  --green: #1aff72;
+  --green-soft: #00c853;
+  --text: #eaeaea;
+  --muted: #9ca3af;
 }
 
-input, button {
-  padding: 8px;
-  margin: 4px;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+}
+
+h1 {
+  color: var(--green);
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.3);
+}
+
+.card span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 22px;
+  color: var(--green);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+input {
+  background: #0c0f14;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--green);
 }
 
 button {
-  cursor: pointer;
-  background: #00c853;
+  background: var(--green-soft);
+  color: #000;
+  font-weight: bold;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
 }
 
-th, td {
-  border-bottom: 1px solid #333;
-  padding: 8px;
-  text-align: center;
+th {
+  color: var(--muted);
+  font-weight: normal;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
 }
 
-.summary {
-  display: flex;
-  gap: 30px;
-  margin-bottom: 20px;
+td {
+  padding: 12px;
+  border-bottom: 1px solid #1f2430;
+}
+
+tr:hover {
+  background: rgba(26, 255, 114, 0.05);
 }
