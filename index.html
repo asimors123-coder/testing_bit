@@ -2,45 +2,59 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>ניהול השקעות</title>
+  <title>Investment Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="container">
 
-<h1>📊 ניהול השקעות</h1>
+    <h1>📊 ניהול השקעות</h1>
 
-<section class="summary">
-  <div>💰 הון כולל: <span id="totalCapital">0</span> ₪</div>
-  <div>💸 מושקע: <span id="invested">0</span> ₪</div>
-</section>
+    <section class="summary">
+      <div class="card">
+        <span>💰 הון כולל</span>
+        <strong><span id="totalCapital">0</span> ₪</strong>
+      </div>
+      <div class="card">
+        <span>💸 מושקע</span>
+        <strong><span id="invested">0</span> ₪</strong>
+      </div>
+    </section>
 
-<h2>➕ הוספת פוזיציה</h2>
-<div class="form">
-  <input id="coin" placeholder="מטבע (BTC)" />
-  <input id="amount" type="number" placeholder="כמות" />
-  <input id="buyPrice" type="number" placeholder="מחיר קנייה" />
-  <input id="tp" type="number" placeholder="Target" />
-  <input id="sl" type="number" placeholder="Stop" />
-  <input id="note" placeholder="הערה" />
-  <button onclick="addPosition()">הוסף</button>
-</div>
+    <section class="card">
+      <h2>➕ הוספת פוזיציה</h2>
+      <div class="form">
+        <input id="coin" placeholder="מטבע (BTC)" />
+        <input id="amount" type="number" placeholder="כמות" />
+        <input id="buyPrice" type="number" placeholder="מחיר קנייה" />
+        <input id="tp" type="number" placeholder="Target" />
+        <input id="sl" type="number" placeholder="Stop" />
+        <input id="note" placeholder="הערה" />
+        <button onclick="addPosition()">הוסף פוזיציה</button>
+      </div>
+    </section>
 
-<h2>📈 פוזיציות</h2>
-<table>
-  <thead>
-    <tr>
-      <th>מטבע</th>
-      <th>כמות</th>
-      <th>קנייה</th>
-      <th>השקעה ₪</th>
-      <th>TP</th>
-      <th>SL</th>
-      <th>הערה</th>
-    </tr>
-  </thead>
-  <tbody id="positions"></tbody>
-</table>
+    <section class="card">
+      <h2>📈 פוזיציות</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>מטבע</th>
+            <th>כמות</th>
+            <th>קנייה</th>
+            <th>השקעה ₪</th>
+            <th>TP</th>
+            <th>SL</th>
+            <th>הערה</th>
+          </tr>
+        </thead>
+        <tbody id="positions"></tbody>
+      </table>
+    </section>
 
-<script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
